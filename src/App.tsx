@@ -14,6 +14,7 @@ import { homeSharp, moonSharp, bookSharp } from "ionicons/icons";
 import MainTab from "./pages/tab1/MainTab";
 import CustomizeTab from "./pages/tab2/CustomizeTab";
 import RecordTab from "./pages/tab3/RecordTab";
+import RecordingPage from "./pages/tab3/RecordingPage";
 import PlayerPage from "./pages/tab2/player";
 
 /* Core CSS required for Ionic components to work properly */
@@ -47,8 +48,9 @@ const App: React.FC = () => (
           <Route path="/tab1" component={MainTab} exact={true} />
           <Route path="/tab1/:userId" component={MainTab}/>
           <Route path="/tab2" component={CustomizeTab} exact={true} />
-          <Route path="/tab3" component={RecordTab} />
+          <Route path="/tab3" component={RecordTab} exact={true} />
           <Route path="/tab2/player" component={PlayerPage} />
+          <Route path="/tab3/recording" component={RecordingPage} />
           <Route path="/" render={() => <Redirect to="/tab1" />} exact={true} />
         </IonRouterOutlet>
         <IonTabBar slot="bottom">

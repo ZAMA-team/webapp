@@ -4,12 +4,32 @@ import moment from "moment";
 import { IonIcon } from "@ionic/react";
 import { pencilSharp } from "ionicons/icons";
 import "./index.css";
+import history from "reactHistory";
+import { bindActionCreators } from "redux";
+import * as Actions from "actions";
 
-const RecordComponent: React.FC = () => {
+// interface ListItemProps {
+//   actions: any;
+//   content: Content;
+// }
+//
+// const mapDispatchToProps = (dispatch: any) => ({
+//   actions: bindActionCreators(Actions, dispatch),
+// });
+
+// const RecordComponent: React.FC<ListItemProps> = ({ content, actions }) => {
+  const RecordComponent: React.FC = () => {
   return (
     <Container>
       <div className="today">{moment().format("YYYY.MM.DD")}</div>
-      <div className="title">
+      <div className="title"
+           onClick={() => {
+             // actions.addContentFirstOrder(content);
+             // actions.setPlay(true);
+             history.push("./tab3/recording");
+             // history.push("./tab2/player");
+           }}
+      >
         수면 기록하기
         <IonIcon icon={pencilSharp} />
       </div>
@@ -28,7 +48,15 @@ const RecordComponent: React.FC = () => {
             <span>00:00</span>
           </div>
           <div className="record-replay">
-            <span>다시듣기</span>
+            <span
+              onClick={() => {
+                // actions.addContentFirstOrder(content);
+                // actions.setPlay(true);
+                history.push("./tab2/player");
+              }}
+            >
+              다시듣기
+            </span>
           </div>
         </div>
       </div>
